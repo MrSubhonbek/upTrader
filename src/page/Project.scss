@@ -1,0 +1,24 @@
+.project-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.project-container div {
+  margin-top: 15px;
+  font-size: 1.5rem;
+  width: 500px;
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+@media screen and (max-width: 685px) {
+  .project-container div {
+    width: 300px;
+  }
+}
