@@ -1,7 +1,9 @@
 import { FC, useState } from "react";
-import { ICard, IComment } from "../../../../interface/interfaces";
+
 import { CustomInput } from "../../../CustomInput/CustomInput";
 import { Comment } from "./Comment";
+
+import { ICard, IComment } from "../../../../interface/interfaces";
 
 import "./Comment.scss";
 

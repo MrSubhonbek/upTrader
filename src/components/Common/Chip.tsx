@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { X } from "react-feather";
 
 import { ILabel } from "../../interface/interfaces";

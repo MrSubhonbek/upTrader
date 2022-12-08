@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { useParams } from "react-router";
+
 import { Dashboard } from "../components/Dashboard/Dashboard";
-import { IProject } from "../interface/interfaces";
-interface IProps {}
-export const Tasks: FC<IProps> = ({}) => {
+
+export const Tasks: FC = () => {
   const params = useParams();
   return (
     <div>

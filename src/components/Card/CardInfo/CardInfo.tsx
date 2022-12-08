@@ -1,14 +1,15 @@
-import React, { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Calendar, CheckSquare, List, Tag, Trash, Type } from "react-feather";
 
-import { ICard, ILabel, ITask } from "../../../interface/interfaces";
 import { Modal } from "../../Modal/Modal";
 import { CustomInput } from "../../CustomInput/CustomInput";
 import { Chip } from "../../Common/Chip";
+import { Comments } from "./Comments/Comments";
+
 import { colorsList } from "../../../utils/utils";
+import { ICard, ILabel, ITask } from "../../../interface/interfaces";
 
 import "./CardInfo.scss";
-import { Comments } from "./Comments/Comments";
 
 interface IProps {
   onClose: () => void;
@@ -27,6 +28,10 @@ export const CardInfo: FC<IProps> = ({
   const [cardValues, setCardValues] = useState<ICard>({
     ...card,
   });
+
+  useEffect(() => {
+    if (updateCard) updateCard(boardId, cardValues.id, cardValues);
+  }, [cardValues]);
 
   const updateTitle = (value: string) => {
     setCardValues({ ...cardValues, title: value });
@@ -112,10 +117,6 @@ export const CardInfo: FC<IProps> = ({
       date,
     });
   };
-
-  useEffect(() => {
-    if (updateCard) updateCard(boardId, cardValues.id, cardValues);
-  }, [cardValues]);
 
   const calculatedPercent = calculatePercent();
 

@@ -1,5 +1,6 @@
 import { FC, MouseEvent, useState } from "react";
 import { X } from "react-feather";
+
 import { IActiveComment } from "./Comments";
 
 interface IProps {

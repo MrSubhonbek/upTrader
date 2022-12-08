@@ -1,12 +1,14 @@
-import React, { FC, useState } from "react";
+import { FC, useState } from "react";
 import { AlignLeft, CheckSquare, Clock, MoreHorizontal } from "react-feather";
-import { ICard } from "../../interface/interfaces";
-import { formatDate } from "../../utils/utils";
+
 import { Chip } from "../Common/Chip";
 import { Dropdown } from "../Dropdown/Dropdown";
+import { CardInfo } from "./CardInfo/CardInfo";
+
+import { formatDate } from "../../utils/utils";
+import { ICard } from "../../interface/interfaces";
 
 import "./Card.scss";
-import { CardInfo } from "./CardInfo/CardInfo";
 
 interface IProps {
   card: ICard;
@@ -63,7 +65,7 @@ export const Card: FC<IProps> = ({
             <MoreHorizontal />
             {showDropdown && (
               <Dropdown
-                class="board-dropdown"
+                classValue="board-dropdown"
                 onClose={() => setShowDropdown(false)}
               >
                 <p onClick={() => removeCard(boardId, id)}>Delete Card</p>

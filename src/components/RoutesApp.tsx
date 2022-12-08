@@ -1,9 +1,10 @@
 import { FC } from "react";
 import { Route, Routes } from "react-router-dom";
-import { IProject } from "../interface/interfaces";
 
 import { Projects } from "../page/Projects";
 import { Tasks } from "../page/Tasks";
+
+import { IProject } from "../interface/interfaces";
 
 interface IProps {
   projects: IProject[];

@@ -1,17 +1,19 @@
-import { MutableRefObject, useEffect, useRef } from "react";
+import { FC, ReactNode, useEffect, useRef } from "react";
 
 import "./Dropdown.scss";
 
-export const Dropdown = (props: any) => {
-  const dropdownRef: any = useRef();
+interface IProps {
+  onClose?: () => void;
+  classValue?: string;
+  children: ReactNode;
+}
+
+export const Dropdown: FC<IProps> = ({ classValue, onClose, children }) => {
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleClick = (event: MouseEvent) => {
-    if (
-      dropdownRef &&
-      !dropdownRef.current?.contains(event.target) &&
-      props.onClose
-    )
-      props.onClose();
+    if (dropdownRef && !dropdownRef.current?.contains(event.target) && onClose)
+      onClose();
   };
 
   useEffect(() => {
@@ -25,9 +27,9 @@ export const Dropdown = (props: any) => {
   return (
     <div
       ref={dropdownRef}
-      className={`dropdown custom-scroll ${props.class ? props.class : ""}`}
+      className={`dropdown custom-scroll ${classValue ? classValue : ""}`}
     >
-      {props.children}
+      {children}
     </div>
   );
 };

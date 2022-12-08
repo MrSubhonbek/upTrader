@@ -1,10 +1,11 @@
 import { FC, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
-import { IBoard, ICard } from "../../interface/interfaces";
-import { fetchBoardList, updateLocalStorageBoards } from "../../utils/api";
 import { Board } from "../Board/Board";
 import { CustomInput } from "../CustomInput/CustomInput";
+
+import { fetchBoardList, updateLocalStorageBoards } from "../../utils/api";
+import { IBoard, ICard } from "../../interface/interfaces";
 
 import "./Dashboard.scss";
 
@@ -24,6 +25,10 @@ export const Dashboard: FC<IProps> = ({ LocalStorageKeyName, projectName }) => {
   useEffect(() => {
     fetchData();
   }, []);
+
+  useEffect(() => {
+    updateLocalStorageBoards(boards, LocalStorageKeyName);
+  }, [boards]);
 
   async function fetchData() {
     const boards: IBoard[] = await fetchBoardList(LocalStorageKeyName);
@@ -147,9 +152,6 @@ export const Dashboard: FC<IProps> = ({ LocalStorageKeyName, projectName }) => {
     });
   };
 
-  useEffect(() => {
-    updateLocalStorageBoards(boards, LocalStorageKeyName);
-  }, [boards]);
   return (
     <div className="app">
       <div className="app-nav">

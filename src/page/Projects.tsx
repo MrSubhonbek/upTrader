@@ -1,6 +1,7 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { Trash } from "react-feather";
 import { useNavigate } from "react-router";
+
 import { CustomInput } from "../components/CustomInput/CustomInput";
 
 import { IProject } from "../interface/interfaces";

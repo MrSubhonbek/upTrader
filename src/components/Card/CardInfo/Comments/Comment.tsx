@@ -1,8 +1,12 @@
-import React, { FC } from "react";
-import { IComment } from "../../../../interface/interfaces";
-import "./Comment.scss";
+import { FC } from "react";
+
 import { CommentForm } from "./CommentForm";
 import { IActiveComment } from "./Comments";
+
+import { IComment } from "../../../../interface/interfaces";
+
+import "./Comment.scss";
+
 interface IProps {
   comment: IComment;
   replies: IComment[];

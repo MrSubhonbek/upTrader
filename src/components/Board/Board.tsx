@@ -1,10 +1,11 @@
 import { FC, useState } from "react";
 import { MoreHorizontal } from "react-feather";
 
-import { IBoard, ICard } from "../../interface/interfaces";
 import { Card } from "../Card/Card";
 import { CustomInput } from "../CustomInput/CustomInput";
 import { Dropdown } from "../Dropdown/Dropdown";
+
+import { IBoard, ICard } from "../../interface/interfaces";
 
 import "./Board.scss";
 
@@ -59,7 +60,7 @@ export const Board: FC<IProps> = ({
             <MoreHorizontal />
             {showDropdown && (
               <Dropdown
-                class="board-dropdown"
+                classValue="board-dropdown"
                 onClose={() => setShowDropdown(false)}
               >
                 <p onClick={() => removeBoard(board?.id)}>Delete Board</p>
