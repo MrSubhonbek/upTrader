@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, FormEvent, useState } from "react";
 import { X } from "react-feather";
 
 import "./CustomInput.scss";
@@ -28,7 +28,7 @@ export const CustomInput: FC<IProps> = ({
   const [isCustomInput, setIsCustomInput] = useState(false);
   const [inputText, setInputText] = useState(defaultValue || "");
 
-  const submission = (e: any) => {
+  const submission = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (inputText && onSubmit) {
       setInputText("");
