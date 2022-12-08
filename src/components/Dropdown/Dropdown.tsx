@@ -12,7 +12,11 @@ export const Dropdown: FC<IProps> = ({ classValue, onClose, children }) => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleClick = (event: MouseEvent) => {
-    if (dropdownRef && !dropdownRef.current?.contains(event.target) && onClose)
+    if (
+      dropdownRef &&
+      !dropdownRef.current?.contains(event.target as Element) &&
+      onClose
+    )
       onClose();
   };
 
